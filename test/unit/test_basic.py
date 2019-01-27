@@ -2,15 +2,16 @@
 import pytest
 from wily.helper.utl import collect_wily_modules
 
-WILEY_MODULES = ["module_name", [collect_wily_modules()]]
+# WILEY_MODULES = ["module_name", [collect_wily_modules()]]
 
 
-@pytest.mark.parametrize(WILEY_MODULES)
-def test_modules(module_name):
+# @pytest.mark.parametrize(["module_name", collect_wily_modules()])
+def test_modules():
     """
     Test the every module has a module number
     """
-    print(module_name)
+    for name in collect_wily_modules():
+        print(name)
 
 
 if __name__ == "__main__":
