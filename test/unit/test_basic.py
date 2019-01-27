@@ -1,4 +1,4 @@
-# import importlib
+from importlib import import_module
 import pytest
 from wily.helper.utl import collect_wily_modules
 
@@ -10,7 +10,11 @@ def test_modules(module_name):
     """
     Test the every module has a module number
     """
+    docstr = import_module(module_name).__doc__
+    module_line = docstr.splitlines()[-1]
     print(module_name)
+    print(module_line)
+    assert module_line.startswith("MODULE:")
 
 
 if __name__ == "__main__":

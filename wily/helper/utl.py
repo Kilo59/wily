@@ -1,7 +1,7 @@
 """
 Miscelaionus utility methods for wily
 
-MODULE:0-5
+MODULE:3-2
 """
 import setuptools
 import pkgutil
@@ -24,4 +24,4 @@ def collect_wily_modules():
 
 
 if __name__ == "__main__":
-    print(collect_wily_modules())
+    pytes.main("")
