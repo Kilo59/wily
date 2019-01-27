@@ -1,23 +1,17 @@
-import pathlib
-from pkgutil import iter_modules
-from setuptools import find_packages
-# import pytest
+# import importlib
+import pytest
+from wily.utils import collect_wily_modules
 
-WILY_ROOT = pathlib.Path("wily").resolve()
-print(WILY_ROOT)
+WILEY_MODULES = ["module_name", [collect_wily_modules()]]
 
-def get_all_modules():
-    wily_modules = set()
-    for pkg in find_packages():
-        pkg_path = f"{WILY_ROOT.parent}/{pkg.replace('.', '/')}"
-        print(pkg_path, pkg)
-        for _, name, ispkg in iter_modules([pkg_path]):
-            if ispkg:
-                pass
-            else:
-                # print("added", name)
-                wily_modules.add(f"{pkg}.{name}")
-    return wily_modules
+
+@pytest.mark.parametrize(WILEY_MODULES)
+def test_modules(module_name):
+    """
+    Test the every module has a module number
+    """
+    print(module_name)
+
 
 if __name__ == "__main__":
-    print(get_all_modules())
+    pytest.main(args=["-v"])
