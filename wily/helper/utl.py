@@ -12,7 +12,7 @@ WILY_ROOT = pathlib.Path(__file__).joinpath("..", "..").resolve()
 
 def collect_wily_modules():
     """
-    Returns all wiley modules
+    Return all wiley modules.
     """
     wily_modules = set()
     for pkg in setuptools.find_packages():
