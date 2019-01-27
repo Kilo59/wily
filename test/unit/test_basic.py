@@ -1,6 +1,6 @@
 # import importlib
 import pytest
-from wily.utils import collect_wily_modules
+from wily.helper.utl import collect_wily_modules
 
 WILEY_MODULES = ["module_name", [collect_wily_modules()]]
 
